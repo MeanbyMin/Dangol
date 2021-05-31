@@ -182,12 +182,10 @@ exports.KakaoAuth = functions.https.onRequest((req, res) => {
       console.log("Kakao Auth Code:", authCode);
       if (!authCode) {
         return cors(req, res, () => {
-          res
-            .status(400)
-            .json({
-              error: "There is no token.",
-              message: "Access token is a required parameter.",
-            });
+          res.status(400).json({
+            error: "There is no token.",
+            message: "Access token is a required parameter.",
+          });
         });
       }
 
